@@ -15,5 +15,7 @@ namespace connect_four__server.Data
         }
 
         public DbSet<connect_four__server.Models.Player> Player { get; set; } = default!;
+
+        public DbSet<connect_four__server.Models.Game>? Game { get; set; }
     }
 }

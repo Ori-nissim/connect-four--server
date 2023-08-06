@@ -4,6 +4,7 @@ using connect_four__server.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddMvc();  // allow mvc services
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<connect_four__serverContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("connect_four__serverContext") ?? throw new InvalidOperationException("Connection string 'connect_four__serverContext' not found.")));
@@ -22,6 +23,14 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+//Adding MVC Middleware
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    //Configuring the MVC middleware to the request processing pipeline
+    endpoints.MapDefaultControllerRoute();
+});
 
 app.UseAuthorization();
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using connect_four__server.Data;
 
@@ -11,9 +12,10 @@ using connect_four__server.Data;
 namespace connect_four__server.Migrations
 {
     [DbContext(typeof(connect_four__serverContext))]
-    partial class connect_four__serverContextModelSnapshot : ModelSnapshot
+    [Migration("20230803173635_GamesMigration")]
+    partial class GamesMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
