@@ -1,0 +1,70 @@
+﻿@page
+@model connect_four__server.Pages.Queries.QueriesModel
+@{
+	<h1>Queries</h1>
+	<h4>Select a query to view</h4>
+
+	<b style="margin-right:10px">1 - All players sorted by name, case insensitive</b>
+	<a asp-area="" asp-page="/Queries/Q1">Run the Query >></a>
+	<br />
+	<br />
+
+
+	<b style="margin-right:10px">2 - All players sorted by name descending, case sensitive with the date of their last match</b>
+	<a asp-area="" asp-page="/Queries/Q2">Run the Query >></a>
+	<br />
+	<br />
+
+
+	<b style="margin-right:10px">3 - All games</b>
+	<a asp-area="" asp-page="/Queries/Q3">Run the Query >></a>
+	<br />
+	<br />
+
+
+	<b style="margin-right:10px">4 - All games, distinct by both ID and Game Moves</b>
+	<a asp-area="" asp-page="/Queries/Q4">Run the Query >></a>
+	<br />
+	<br />
+
+
+	<b style="margin-right:10px">5 - All Games For Chosen Player</b>
+	<form id="playerIdForm">
+		<select id="playerIdSelect" asp-items="@(new SelectList(Model.Player.Select(player => new SelectListItem { Text = player.Id.ToString() + " - " + player.Name.ToString() , Value = player.Id.ToString() }), "Value", "Text"))">
+		Select player
+		</select>
+
+		<a style="text-decoration: underline;cursor: pointer;color: -webkit-link;" onclick="runQuery()">Run the Query >></a>
+	</form>
+
+	<script>
+		function runQuery() {
+			// Get the selected player ID from the combo box
+			var selectedPlayerId = document.getElementById("playerIdSelect").value;
+
+			// Build the query link with the selected player ID
+			var queryLink = "/Queries/Queries/Q5/" + selectedPlayerId;
+
+			// Redirect to the query page with the selected player ID as a parameter
+			window.location.href = queryLink;
+		}
+	</script>
+	<br />
+
+
+
+	<b style="margin-right:10px">6 - Number of games for each player</b>
+	<a asp-area="" asp-page="/Queries/Q6">Run the Query >></a>
+	<br />
+	<br />
+
+
+	<b style="margin-right:10px">7 - All Players sorted by Number of games, Descending order</b>
+	<a asp-area="" asp-page="/Queries/Q7">Run the Query >></a>
+	<br />
+	<br />
+
+
+	<b style="margin-right:10px">8 - All Players sorted by Country</b>
+	<a asp-area="" asp-page="/Queries/Q8">Run the Query >></a>
+}

@@ -1,20 +1,25 @@
 ﻿@page
 @model connect_four__server.Pages.Games.IndexModel
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<h1>All Games</h1>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].PlayerID)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Game[0].StartTime)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Game[0].Duration)
             </th>
+           
             <th>
-                @Html.DisplayNameFor(model => model.Game[0].PlayerID)
+                @Html.DisplayNameFor(model => model.Game[0].Moves)
             </th>
             <th></th>
         </tr>
@@ -23,16 +28,21 @@
 @foreach (var item in Model.Game) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.StartTime)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Duration)
+                    @Html.DisplayFor(modelItem => item.PlayerID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PlayerID)
+                    @Html.DisplayFor(modelItem => item.StartTime)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Moves)
+            </td>
+            <td>
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>

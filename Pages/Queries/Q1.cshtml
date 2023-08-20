@@ -1,18 +1,9 @@
 ﻿@page
-@model connect_four__server.Pages.Players.IndexModel
-
+@model connect_four__server.Pages.Queries.Q1Model
 @{
-    ViewData["Title"] = "Index";
-}
-
-
-<h1>All Registered Players</h1>
-
-<p>
-    <a asp-page="Create">Register New Player</a>
-</p>
-
-
+    <h1>
+        1 - All players data, sorted by name, case insensitive
+    </h1>
 <table class="table">
     <thead>
         <tr>
@@ -46,12 +37,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+         
         </tr>
 }
     </tbody>
 </table>
+<br />
+    <a asp-area="" asp-page="/Queries/Queries"> &#8592; Back to all Queries </a>
+
+}

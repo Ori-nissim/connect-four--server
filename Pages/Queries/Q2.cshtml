@@ -1,0 +1,30 @@
+﻿@page
+@model connect_four__server.Pages.Queries.Q2Model
+@{
+
+    <h1>
+        All players sorted by name descending, case sensitive with the date of their last match
+    </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Most Recent Game Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var player in Model.Player)
+            {
+                <tr>
+                    <td>@player.Name</td>
+                    <td>@player.MostRecentGameDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <br />
+    <a asp-area="" asp-page="/Queries/Queries"> &#8592; Back to all Queries </a>
+
+}

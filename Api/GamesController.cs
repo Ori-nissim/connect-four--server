@@ -49,6 +49,22 @@ namespace connect_four__server.Api
 
             return game;
         }
+        // api/Games/PlayerID=5
+        [HttpGet("PlayerId={id}")]
+        public async Task<ActionResult<IEnumerable<Game>>> GetGamesByPlayerId(int id)
+        {
+            var gamesByPlayer = await _context.Game
+                .Where(game => game.PlayerID == id)
+                .ToListAsync();
+
+            if (gamesByPlayer == null || gamesByPlayer.Count == 0)
+            {
+                return NotFound("No games found for the specified player ID.");
+            }
+
+            return gamesByPlayer;
+        }
+
 
         // PUT: api/Games/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

@@ -1,0 +1,52 @@
+﻿@page
+@model connect_four__server.Pages.Queries.Q4Model
+@{
+    <h1>
+    All Games, distinct by Both ID & Moves
+    </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Games[0].PlayerID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Games[0].StartTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Games[0].Duration)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Games[0].Moves)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Games)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlayerID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Duration)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Moves)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <br />
+    <a asp-area="" asp-page="/Queries/Queries"> &#8592; Back to all Queries </a>
+
+}
+

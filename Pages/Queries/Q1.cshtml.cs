@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,26 +8,27 @@ using Microsoft.EntityFrameworkCore;
 using connect_four__server.Data;
 using connect_four__server.Models;
 
-namespace connect_four__server.Pages.Games
+namespace connect_four__server.Pages.Queries
 {
-    public class IndexModel : PageModel
+    public class Q1Model : PageModel
     {
         private readonly connect_four__server.Data.connect_four__serverContext _context;
+        
 
-     
-        public IndexModel(connect_four__server.Data.connect_four__serverContext context)
+        public Q1Model(connect_four__server.Data.connect_four__serverContext context)
         {
             _context = context;
         }
 
-        public IList<Game> Game { get;set; } = default!;
+        public IList<Player> Player { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Game != null)
+            if (_context.Player != null)
             {
-                Game = await _context.Game.ToListAsync();
+                Player = await _context.Player.OrderBy(p => p.Name).ToListAsync();
             }
         }
+
     }
 }

@@ -1,0 +1,26 @@
+﻿@page
+@model connect_four__server.Pages.Queries.Q6Model
+@{
+
+    <h1>Player Games Count</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Games Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var playerGamesCount in Model.PlayerGamesCounts)
+            {
+                <tr>
+                    <td>@playerGamesCount.Player.Name</td>
+                    <td>@playerGamesCount.GamesCount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <a asp-area="" asp-page="/Queries/Queries"> &#8592; Back to all Queries </a>
+}

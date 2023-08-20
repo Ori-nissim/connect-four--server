@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using connect_four__server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using connect_four__server.Data;
-using connect_four__server.Models;
 
-namespace connect_four__server.Pages.Players
+namespace connect_four__server.Pages.Queries
 {
-    public class IndexModel : PageModel
+    public class Q8Model : PageModel
     {
         private readonly connect_four__server.Data.connect_four__serverContext _context;
-     
 
-        public IndexModel(connect_four__server.Data.connect_four__serverContext context)
+
+        public Q8Model(connect_four__server.Data.connect_four__serverContext context)
         {
             _context = context;
         }
@@ -26,10 +21,8 @@ namespace connect_four__server.Pages.Players
         {
             if (_context.Player != null)
             {
-                Player = await _context.Player.ToListAsync();
+                Player = await _context.Player.OrderBy(p => p.Country).ToListAsync();
             }
         }
-
-       
     }
 }

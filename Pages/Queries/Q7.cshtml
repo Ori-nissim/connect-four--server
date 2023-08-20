@@ -1,0 +1,31 @@
+﻿@page
+@model connect_four__server.Pages.Queries.Q7Model
+@{
+    <h1>All Players sorted by Number of games played, Descending order</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Country</th>
+                <th>Games Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var playerGamesCount in Model.PlayerGamesCounts)
+            {
+                <tr>
+                    <td>@playerGamesCount.Player.Id</td>
+                    <td>@playerGamesCount.Player.Name</td>
+                    <td>@playerGamesCount.Player.Phone</td>
+                    <td>@playerGamesCount.Player.Country</td>
+                    <td>@playerGamesCount.GamesCount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <a asp-area="" asp-page="/Queries/Queries"> &#8592; Back to all Queries </a>
+}

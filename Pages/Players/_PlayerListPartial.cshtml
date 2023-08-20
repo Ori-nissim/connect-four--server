@@ -1,0 +1,23 @@
+﻿@model IEnumerable<connect_four__server.Models.Player>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var player in Model)
+        {
+            <tr>
+                <td>@player.Id</td>
+                <td>@player.Name</td>
+                <td>@player.Country</td>
+                <td>@player.Phone</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+﻿@page
+@model connect_four__server.Pages.Queries.Q8Model
+@{
+    <h1>
+        All players sorted by Country
+    </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Player[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Player[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Player[0].Country)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Player[0].Phone)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Player)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <a asp-area="" asp-page="/Queries/Queries"> &#8592; Back to all Queries </a>
+
+}

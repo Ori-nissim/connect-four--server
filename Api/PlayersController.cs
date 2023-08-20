@@ -14,6 +14,7 @@ namespace connect_four__server.Api
     [ApiController]
     public class PlayersController : ControllerBase
     {
+
         private readonly connect_four__serverContext _context;
 
         public PlayersController(connect_four__serverContext context)
@@ -21,11 +22,13 @@ namespace connect_four__server.Api
             _context = context;
         }
 
+       
+
         // GET: api/Players
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Player>>> GetPlayers()
         {
-            await Console.Out.WriteLineAsync("Request received 2");
+            await Console.Out.WriteLineAsync("GetPlayers Runs");
 
             if (_context.Player == null)
             {
@@ -34,7 +37,7 @@ namespace connect_four__server.Api
             
             return await _context.Player.ToListAsync();
         }
-
+        // GET: api/Players/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Player>> GetPlayerById([FromRoute] string id)
         {
